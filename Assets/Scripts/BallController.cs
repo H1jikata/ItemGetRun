@@ -25,6 +25,5 @@ public class BallController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        Debug.Log("a");
     }
 }
