@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class AddPoint : MonoBehaviour
 {
-    [SerializeField] string _tagName = default;
-    [SerializeField] int _addscore = default;
+    [SerializeField,Tooltip("ボールについてるtタグの名前")] string _tagName = default;
+    [SerializeField,Tooltip("スコアに加算する数字")] int _addscore = default;
+
+    /// <summary>
+    /// ある場所に入ると入ったものが消えて、スコアが加算される
+    /// </summary>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == _tagName)

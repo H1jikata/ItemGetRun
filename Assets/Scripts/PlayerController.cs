@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] int _speed = 5;
+    [SerializeField,Tooltip("プレイヤーのスピード")] int _speed = 5;
 
     Rigidbody2D _rb;
     void Start()
@@ -14,9 +14,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float _h = Input.GetAxisRaw("Horizontal");
-        //float _v = Input.GetAxisRaw("Vertical");
-
+        float _h = Input.GetAxisRaw("Horizontal");　//横だけしか動かさせたくないので、Horizontalのみ
         _rb.velocity = new Vector2(_h * _speed, _rb.velocity.y);
     }
 }

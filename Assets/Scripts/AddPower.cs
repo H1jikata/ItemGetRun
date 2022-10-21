@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class AddPower : MonoBehaviour
 {
-    [SerializeField] string _tagName = default;
-    [SerializeField] Vector2 _powerDir = default;
+    [SerializeField,Tooltip("プレイヤーのタグの名前")] string _tagName = default;
+    [SerializeField,Tooltip("プレイヤーに力を加える方向")] Vector2 _powerDir = default;
+
+    /// <summary>
+    /// 範囲にはいってきたプレイヤーを飛ばす
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == _tagName)
