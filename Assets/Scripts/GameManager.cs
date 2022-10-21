@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
+    static GameManager _instance;
+    static public GameManager Instance => _instance;
+
     [SerializeField,Tooltip("ScoreのUIについているTagの名前")] string _tagName = default;
     [SerializeField, Tooltip("Scoreの前につける単語")] string _score = default;
     int _currentScore = default;
@@ -12,6 +16,19 @@ public class GameManager : MonoBehaviour
 
     GameObject _scoreObject;
     Text _scoreText;
+
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
     void Start()
     {
         _currentScore = 0; //ゲームが始まったら必ず初期化する
@@ -28,11 +45,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    static public void AddScore(int num)
+    {
+        Instance._currentScore += num;
+    }
     /// <summary>
     /// デバッグ用
     /// </summary>
     public void OnButtomDown()
     {
         _startTrigger = true;
+    }
+
+    void OnDestroy()
+    {
+        if (_instance == this)
+        {
+            _instance = null;
+        }
     }
 }
