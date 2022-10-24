@@ -8,6 +8,7 @@ public class slotte : MonoBehaviour
     [SerializeField, Tooltip("スロットのあたり確率")] float _pMin, _pMax;
     [SerializeField] int _hitNum = default;
     [SerializeField, Tooltip("スロットの数字オブジェクト")] GameObject[] _number = default;
+    [SerializeField, Tooltip("数字をだす場所のObject")] GameObject[] _posi = default;
 
     int _luccky = default;
     float _unLuccky = default;
@@ -19,7 +20,11 @@ public class slotte : MonoBehaviour
 
         if(_hitNum == _luccky)
         {
-            Debug.Log("a");
+            int _num = (int)Random.Range(1, 9);
+            for(int i = 0; i < 3; i++)
+            {
+                Instantiate(_number[_num - 1], _posi[i].transform);
+            }
         }
         else
         {
