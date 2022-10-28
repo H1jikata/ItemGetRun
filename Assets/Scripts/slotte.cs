@@ -21,7 +21,7 @@ public class slotte : MonoBehaviour
         if(_hitNum == _luccky)
         {
             int _num = (int)Random.Range(1, 9);
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 3; i++) // ‚à‚µ“–‚½‚Á‚½‚çƒ‰ƒ“ƒ_ƒ€‚Å”Žš‚ðo‚·‚æ‚¤‚ÉÝ’è
             {
                 Instantiate(_number[_num - 1], _posi[i].transform);
             }
