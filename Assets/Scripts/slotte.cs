@@ -8,6 +8,7 @@ public class slotte : MonoBehaviour
     [SerializeField,Tooltip("乱数の一番したと一番うえ")] float _min, _max;
     [SerializeField, Tooltip("スロットのあたり確率")] float _pMin, _pMax;
     [SerializeField] int _hitNum = default;
+    [SerializeField] GameObject _reel = default;
     [SerializeField, Tooltip("スロットの数字オブジェクト")] GameObject[] _number = default;
     [SerializeField, Tooltip("数字をだす場所のObject")] GameObject[] _posi = default;
 
@@ -36,5 +37,10 @@ public class slotte : MonoBehaviour
                 Debug.Log(_avoidNum[i]);
             }
         }
+    }
+
+    void Slotte()
+    {
+        Vector3 _currentePos = this._reel.transform.position; // 初期位置を保存
     }
 }
